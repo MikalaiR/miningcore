@@ -663,7 +663,7 @@ namespace MiningCore.Blockchain.Bitcoin
                 new DaemonCmd(BitcoinCommands.ValidateAddress, new[] { poolConfig.Address }),
                 new DaemonCmd(BitcoinCommands.SubmitBlock),
                 new DaemonCmd(!hasLegacyDaemon ? BitcoinCommands.GetBlockchainInfo : BitcoinCommands.GetInfo),
-                new DaemonCmd(BitcoinCommands.GetDifficulty),
+                // new DaemonCmd(BitcoinCommands.GetDifficulty),
             };
 
             var results = await daemon.ExecuteBatchAnyAsync(commands);
@@ -683,7 +683,7 @@ namespace MiningCore.Blockchain.Bitcoin
             var submitBlockResponse = results[1];
             var blockchainInfoResponse = !hasLegacyDaemon ? results[2].Response.ToObject<BlockchainInfo>() : null;
             var daemonInfoResponse = hasLegacyDaemon ? results[2].Response.ToObject<DaemonInfo>() : null;
-            var difficultyResponse = results[3].Response.ToObject<JToken>();
+            // var difficultyResponse = results[3].Response.ToObject<JToken>();
 
             // ensure pool owns wallet
             if (!validateAddressResponse.IsValid)
@@ -692,7 +692,7 @@ namespace MiningCore.Blockchain.Bitcoin
             if (clusterConfig.PaymentProcessing?.Enabled == true && !validateAddressResponse.IsMine)
                 logger.ThrowLogPoolStartupException($"Daemon does not own pool-address '{poolConfig.Address}'", LogCat);
 
-            isPoS = difficultyResponse.Values().Any(x => x.Path == "proof-of-stake");
+            isPoS = false //difficultyResponse.Values().Any(x => x.Path == "proof-of-stake");
 
             // Create pool address script from response
             if (!isPoS)
