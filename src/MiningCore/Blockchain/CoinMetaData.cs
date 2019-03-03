@@ -62,7 +62,7 @@ namespace MiningCore.Blockchain
             { CoinType.RVN, new Dictionary<string, string> { { string.Empty, $"http://explorer.threeeyed.info/block/{BlockHashPH}" }}},
             { CoinType.PGN, new Dictionary<string, string> { { string.Empty, $"http://explorer.pigeoncoin.org/block/{BlockHashPH}" }}},
             { CoinType.XZC, new Dictionary<string, string> { { string.Empty, $"https://explorer.zcoin.io/block/{BlockHashPH}" }}},
-            { CoinType.TLR, new Dictionary<string, string> { { string.Empty, $"https://explorer.taler.site/block/{BlockHashPH}" }}},
+            { CoinType.TLR, new Dictionary<string, string> { { string.Empty, $"https://explorer.talercrypto.com/block/{BlockHashPH}" }}},
         };
 
         public static readonly Dictionary<CoinType, string> TxInfoLinks = new Dictionary<CoinType, string>
@@ -103,7 +103,7 @@ namespace MiningCore.Blockchain
             { CoinType.RVN, "http://explorer.threeeyed.info/tx/{0}" },
             { CoinType.PGN, "http://explorer.pigeoncoin.org/tx/{0}" },
             { CoinType.XZC, "https://explorer.zcoin.io/tx/{0}" },
-            { CoinType.TLR, "https://explorer.taler.site/tx/{0}" },
+            { CoinType.TLR, "https://explorer.talercrypto.com/tx/{0}" },
         };
 
         public static readonly Dictionary<CoinType, string> AddressInfoLinks = new Dictionary<CoinType, string>
@@ -141,7 +141,7 @@ namespace MiningCore.Blockchain
             { CoinType.RVN, "http://explorer.threeeyed.info/address/{0}" },
             { CoinType.PGN, "http://explorer.pigeoncoin.org/address/{0}" },
             { CoinType.XZC, "https://explorer.zcoin.io/address/{0}" },
-            { CoinType.TLR, "https://explorer.taler.site/address/{0}" },
+            { CoinType.TLR, "https://explorer.talercrypto.com/address/{0}" },
         };
 
         private const string Ethash = "Ethash";
